@@ -12,4 +12,9 @@ class Film {
     var title: String? = null
     var director: String? = null
     var duration: String? = null
+    var releaseDate: String? = null
+    var genre: String? = null
+    var boxoffice: String? = null
+    var rating: String? = null
+    var summary: String? = null
 }

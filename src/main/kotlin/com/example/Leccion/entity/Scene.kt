@@ -12,6 +12,13 @@ class Scene {
     var description: String? = null
     var budget: Double? = null
     var minutes: Number? = null
+    @Column(name = "scene_place")
+    var scenePlace: String? = null
+    @Column(name = "date_shot")
+    var dateShot: String? = null
+    var actors: String? = null
+    @Column(name = "scene_type")
+    var sceneType: String? = null
     @Column(name = "film_id")
     var filmId: String? = null
 }
