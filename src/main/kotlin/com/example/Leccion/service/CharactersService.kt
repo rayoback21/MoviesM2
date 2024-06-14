@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
 import com.example.Leccion.entity.Characters
+import com.example.Leccion.entity.CharactersView
+import com.example.Leccion.repository.CharactersViewRepository
 
 
 @Service
@@ -13,10 +15,16 @@ class CharactersService {
     @Autowired
     lateinit var charactersRepository: CharactersRepository
 
+    @Autowired
+    lateinit var charactersViewRepository: CharactersViewRepository
+
     fun list(): List<Characters>{
         return charactersRepository.findAll()
     }
 
+    fun listCharacters(): List<CharactersView>{
+        return charactersViewRepository.findAll()
+    }
 
 
 

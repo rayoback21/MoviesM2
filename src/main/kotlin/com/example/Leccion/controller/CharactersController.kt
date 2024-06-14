@@ -9,6 +9,7 @@ import com.example.Leccion.entity.Characters
 
 @RestController
 @RequestMapping("/characters")
+@CrossOrigin(methods = [RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE,RequestMethod.PATCH])
 class CharactersController {
     @Autowired
     lateinit var charactersService: CharactersService
@@ -17,7 +18,11 @@ class CharactersController {
     fun  list(): List<Characters>{
         return charactersService.list()
     }
-
+    @GetMapping("/charactersView")
+    fun listCharacter(): ResponseEntity<List<Characters>>{
+        val scene = charactersService.list()
+        return ResponseEntity(scene,HttpStatus.OK)
+    }
     @PostMapping
     fun save(@RequestBody characters: Characters): Characters {
         return charactersService.save(characters)
@@ -33,7 +38,7 @@ class CharactersController {
         return ResponseEntity(charactersService.updateDescription(characters), HttpStatus.OK)
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Long): ResponseEntity<String> {
         charactersService.delete(id)
         return ResponseEntity("Characters deleted", HttpStatus.OK)

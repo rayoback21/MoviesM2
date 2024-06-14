@@ -6,8 +6,11 @@ import java.math.BigDecimal
 @Entity
 class SceneView (
     @Id
-    @Column(name ="scene_id")
-    val sceneId : Long,
+    @Column(name ="scene_View")
+    val sceneView : String,
+
+    @Column(name = "sceneid")
+    val sceneId : String,
 
     @Column(name = "scene_description")
     val sceneDescription : String,

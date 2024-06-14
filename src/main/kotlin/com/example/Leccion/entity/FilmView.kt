@@ -1,10 +1,10 @@
 package com.example.Leccion.entity
 
 import jakarta.persistence.*
+import java.time.LocalDate
 
 @Entity
-@Table(name = "film")
-class Film {
+class FilmView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false)
@@ -12,8 +12,8 @@ class Film {
     var title: String? = null
     var director: String? = null
     var duration: Double? = null
-    @Column(name = "release_date")
-    var releaseDate: Long? = null
+    @Column(name = "release_date", nullable = false)
+    val releaseDate: LocalDate? = null
     var genre: String? = null
     @Column(name = "box_Office")
     var boxOffice: Double? = null

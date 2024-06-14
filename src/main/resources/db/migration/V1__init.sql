@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS film (
     id SERIAL NOT NULL ,
     title VARCHAR(50) NOT NULL,
-    director VARCHAR(50) NOT NULL,
+    director VARCHAR(250) NOT NULL,
     duration DECIMAL(10,2) NOT NULL ,
     release_date INT NOT NULL ,
     genre VARCHAR(30) NOT NULL ,
@@ -28,11 +28,11 @@ CREATE TABLE IF NOT EXISTS scene(
 
 CREATE TABLE IF NOT EXISTS characters(
     id SERIAL NOT NULL,
-    fullName VARCHAR(50) NOT NULL,
+    full_name VARCHAR(50) NOT NULL,
     description VARCHAR(60) NOT NULL,
     cost DECIMAL(10,2) NOT NULL,
     actor VARCHAR(50) NOT NULL,
-    costume VARCHAR(60) NOT NULL, -- Disfraz o vestimenta
+    stock VARCHAR(60) NOT NULL, -- Disfraz o vestimenta
     rol VARCHAR(50) NOT NULL, -- Ejemplo: Protagonista, Secundario, etc.
     scene_id INT,
     FOREIGN KEY (scene_id) REFERENCES scene(id),

@@ -1,7 +1,9 @@
 package com.example.Leccion.service
 
 import com.example.Leccion.entity.Film
+import com.example.Leccion.entity.FilmView
 import com.example.Leccion.repository.FilmRepository
+import com.example.Leccion.repository.SceneViewRepository
 
 
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,11 +16,17 @@ class FilmService {
     @Autowired
     lateinit var filmRepository: FilmRepository
 
+    @Autowired
+    lateinit var sceneViewRepository: SceneViewRepository
+
+
     fun list(): List<Film>{
         return filmRepository.findAll()
     }
 
-
+    fun listFilm(): List<FilmView>{
+        return sceneViewRepository.findAll()
+    }
 
     fun save(film: Film): Film{
         return filmRepository.save(film)
